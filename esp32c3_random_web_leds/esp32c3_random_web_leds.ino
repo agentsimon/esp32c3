@@ -23,7 +23,7 @@ const char* password = "123456789";
 // --- Web Server Object ---
 AsyncWebServer server(80);
 // --- NeoPixel Configuration for FastLED ---
-const int LED_PIN = 4;
+const int LED_PIN = 3;
 const int NUM_LEDS = 199;
 const int NUM_SEGMENTS = 6;
 
@@ -164,13 +164,14 @@ void setup() {
   }
   
   FastLED.clear();
-  showLeds(); 
   Serial.println("FastLED setup complete.");
-  Serial.println("Button set up complete.");
+  showLeds(); 
+  
+ 
   // --- Button Setup ---
 pinMode(BUTTON_PIN, INPUT_PULLUP);
 attachInterrupt(digitalPinToInterrupt(BUTTON_PIN), handleButtonPress, FALLING);
-  
+   Serial.println("Button set up complete.");
   // DIAGNOSTIC PRINT 2
   Serial.println("Starting WiFi AP...");
 
